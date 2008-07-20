@@ -18,6 +18,7 @@
     <tab label="General Options"/>
     <tab label="Sort Order"/>
     <tab label="Markup"/>
+    <tab label="Exception List"/>
   </tabs>
   <tabpanels>
     <tabpanel id="generaloptionstab">
@@ -70,6 +71,13 @@
                 <label value="$url - URL, $title - title"/>
                 <label value="$date - current date, $time - current unix time, $tab - tab index"/>
             </vbox>
+        </vbox>
+    </tabpanel>
+
+    <tabpanel id="exceptiontab">
+        <vbox>
+            <label value="Exception Site List (multiple addresses: separate with blank space)" control="copyallurls.exceptionlist"/>
+            <textbox flex="0" id="copyallurls.exceptionlist" label="Exception Site List" value="$exceptionlist" size="15"/>
         </vbox>
     </tabpanel>
 

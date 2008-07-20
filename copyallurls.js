@@ -116,6 +116,16 @@ function getUrlsSorted(aBrowsers,oPrefs) {
         }
     }
 
+    if(oPrefs.prefHasUserValue("copyallurls.exceptionlist")){
+            var list = oPrefs.getCharPref("copyallurls.exceptionlist");
+            var temp = new Temp(list, list,list);
+            var length = taburls.length;
+            for (var j = 0; j < length ; j++) {
+                if (compareTempUrl(taburls[j], temp) == 0)
+                    taburls[j] = new Temp('','','');
+            }
+    }
+
     if(oPrefs.prefHasUserValue("copyallurls.sortorder") &&  oPrefs.getCharPref("copyallurls.sortorder") == "title"){
         taburls.sort(compareTempTitle)
     }
