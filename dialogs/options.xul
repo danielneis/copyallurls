@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+
+<dialog buttons="accept,cancel"
+        id="copyallurls-options-dialog"
+        ondialogaccept="return copyallurls_saveOptions();" 
+        ondialogcancel="return;"
+        onload="copyallurls_initOptions();"
+        title="CopyAllUrls Options"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="chrome://copyallurls/content/dialogs/options.js"></script>
+	
+	
+<tabbox>
+  <tabs>
+    <tab label="General Options"/>
+    <tab label="Sort Order"/>
+    <tab label="Markup"/>
+  </tabs>
+  <tabpanels>
+    <tabpanel id="generaloptionstab">
+    <vbox>
+<checkbox id="copyallurls.notitle" label="Copy Only Url (No Title)" checked="false" />
+        <checkbox id="copyallurls.title" label="Title Before Url?" checked="false" />
+	<checkbox id="copyallurls.linebreak" label="Line Break Between Entries?" checked="true" />
+	<checkbox id="copyallurls.addhistory" label="Copy Tab History?" checked="false" />
+        <checkbox id="copyallurls.tinyurl" label="Use Tinyurl For Long Urls?" checked="false" />
+        <separator/>
+        <label value="Maximum Length of Url for Tinyurl" control="copyallurls.length"/>
+        <textbox flex="0" id="copyallurls.length" label="Maximum Length of Url for Tinyurl" value="76" size="5"/>
+        </vbox>
+    </tabpanel>
+    <tabpanel id="sortordertab">
+        <vbox>
+            <label value="Sort By" control="copyallurls.sortorder"/>
+            <menulist id="copyallurls.sortorder">
+                <menupopup>
+                    <menuitem label="Tab Order" value="default"/>
+                    <menuitem label="Domain Name" value="domain"/>
+                    <menuitem label="Title" value="title"/>
+                </menupopup>
+            </menulist>
+        </vbox>
+    </tabpanel>
+    <tabpanel id="markuptab">
+        <vbox>
+            <label value="Select Predefined Markup" control="copyallurls.markupsel"/>
+            <menulist id="copyallurls.markupsel">
+                <menupopup oncommand="copyallurls_selectMarkup();">
+                    <menuitem label="Plain Text" value="plain"/>
+                    <menuitem label="HTML" value="html"/>
+                    <menuitem label="Restructured Text" value="rest"/>
+                    <menuitem label="Structured Text" value="stx"/>
+                    <menuitem label="Markdown" value="markdown"/>
+                    <menuitem label="Wikipedia Markup" value="wikimedia"/>
+                    <menuitem label="SixDgrsWiki" value="sixdgrs"/>
+                </menupopup>
+            </menulist>
+            <checkbox id="copyallurls.markup" label="Use Own Markup?" checked="true" oncommand="copyallurls_switchMarkup();"/>
+            <separator/>
+            <label value="Title Markup" control="copyallurls.titlemarkup"/>
+            <textbox disabled="true" flex="1" id="copyallurls.titlemarkup" label="Title Markup" value="$title" size="15"/>
+            <label value="URL Markup" control="copyallurls.urlmarkup"/>
+            <textbox disabled="true" flex="1" id="copyallurls.urlmarkup" label="URL Markup" value="$url" size="15"/>
+            <separator/>               
+            <vbox>
+                <label value="Markup Definition Variables"/>
+                <label value="$url - URL, $title - title"/>
+                <label value="$date - current date, $time - current unix time, $tab - tab index"/>
+            </vbox>
+        </vbox>
+    </tabpanel>
+
+  </tabpanels>
+</tabbox>
+        
+</dialog>

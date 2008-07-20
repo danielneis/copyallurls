@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:copyallurls="http://www.plasser.net/code/xul/copyallurls/rdf#">
+
+	<RDF:Seq about="http://www.plasser.net/code/xul/copyallurls">
+		<RDF:li>
+			<RDF:Description about="http://www.plasser.net/code/xul/copyallurls">
+				<COPYALLURLS:title>Free Mozilla Extensions</COPYALLURLS:title>
+				<COPYALLURLS:copyallurls>http://www.plasser.net/code/xul/copyallurls</COPYALLURLS:copyallurls>
+				<COPYALLURLS:realurl>http://www.plasser.net/</COPYALLURLS:realurl>
+				<COPYALLURLS:created>1086645412421</COPYALLURLS:created>
+			</RDF:Description>
+		</RDF:li>
+	</RDF:Seq>
+</RDF:RDF>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+
+<dialog buttons="cancel, accept"
+        id="openUrlsDialog"
+		onload="document.getElementById('openUrlsDialog').getButton('accept').disabled = true"
+        ondialogaccept="return openurls_open();"
+        ondialogcancel="return true;"
+        title="Open Tabs"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" style="padding: 1px; margin: 0;">
+	
+	<script type="application/x-javascript" src="chrome://copyallurls/content/dialogs/openurls.js"></script>
+	
+	<vbox flex="0" style="overflow: auto; width: 380px; height: 340px;">
+		<label value="Enter text containing urls and click &lt;Open&gt;:"/>
+		<description>
+			<b>Note</b>: The text you enter can contain as many urls starting with http:// or https://; invalid urls will be ignored.
+		</description>
+			<textbox id="longurl-field" value="" width="350px" height="250px" rows="8" multiline="true" onkeyup="openurls_keypress(this)" />
+		<hbox>
+		    <spacer flex="1"/>
+		    <button dlgtype="cancel" label="Cancel"/>
+		    <button dlgtype="accept" label="Open"/>
+		</hbox>
+	</vbox>
+</dialog>

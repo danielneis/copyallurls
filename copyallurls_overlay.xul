@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+
+<overlay id="copyallurls"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="chrome://copyallurls/content/copyallurls.js"></script>
+        							   
+
+        <!-- Context Menu -->
+	<popup id="contentAreaContextMenu">
+        <menuseparator id="copyallurls-pagecontextmenu-separator"/>
+        <menu id="copyallurls-pagecontext-mainmenu" label="Copy All Urls..." 
+            accesskey="A" class="menuitem-iconic" insertafter="context-copy">
+            <menupopup id="copyallurls-copy-submenu">
+			<menuitem label="Copy"
+			oncommand="copyallurls_copy();"
+			key="key_copyallurls"
+			accesskey="C" />
+		       <menuitem label="Paste"
+			oncommand="copyallurls_paste();"
+			key="key_paste"
+			accesskey="P" />
+            </menupopup>
+        </menu>
+	</popup>
+	
+	<!-- Firefox Toolbar Icon -->
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton type="menu" label="copyallurls"
+			id="copyallurls-button" tooltiptext="Copy All Urls"
+			image="chrome://copyallurls/content/icons/button.png" >
+			<menupopup>
+				<menuitem label="Copy"
+						oncommand="copyallurls_copy();"
+						accesskey="C" />
+				<menuitem label="Paste"
+						oncommand="copyallurls_paste();"
+						accesskey="P" />
+				<menuitem label="Options"
+						oncommand="window.openDialog('chrome://copyallurls/content/dialogs/options.xul','copyallurlsDialog','centerscreen, chrome, resizable').focus();"
+						accesskey="O" />
+			</menupopup>
+		</toolbarbutton>
+	</toolbarpalette>
+	
+	<!-- Firefox Tools File Menu -->
+
+	<menupopup id="menu_EditPopup">
+		<menu id="copyallurls-tools-menu" label="Copy All Urls..." 
+				accesskey="A" class="menuitem-iconic"
+				insertbefore="menu_preferences">
+			<menupopup id="copyallurls-tools-submenu">
+				<menuitem label="Copy"
+						oncommand="copyallurls_copy();"
+						key="key_copyallurls"
+						class="menuitem-iconic"
+						accesskey="C" />
+				<menuitem label="Paste"
+						oncommand="copyallurls_paste();"
+						key="key_paste"
+						class="menuitem-iconic"
+						accesskey="P" />
+				<menuitem label="Open Tabs..."
+                                            oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"
+                                            key="key_openurls"
+                    						class="menuitem-iconic"
+                                            accesskey="T" />
+				<menuitem label="Options..."
+						oncommand="window.openDialog('chrome://copyallurls/content/dialogs/options.xul','CopyAllUrls Options','centerscreen, chrome, resizable').focus();"
+						key="key_openoptione"
+						class="menuitem-iconic"
+						accesskey="O" />
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<keyset id="navKeys">
+	   	<key id="key_openoptione" key="O" modifiers="control alt" oncommand="window.openDialog('chrome://copyallurls/content/dialogs/options.xul','CopyAllUrls Options','centerscreen, chrome, resizable').focus();"/>
+	   	<key id="key_paste" key="V" modifiers="control alt" oncommand="copyallurls_paste();"/>
+	   	<key id="key_openurls" key="X" modifiers="control alt" oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"/>
+		<key id="key_copyallurls" key="C" modifiers="control alt" oncommand="copyallurls_copy();"/>
+	</keyset>
+    
+    
+    <!-- Tools Menu -->
+  <menupopup id="taskPopup">
+	<menu id="copyallurls-tools-menu" label="Copy All Urls..." 
+				accesskey="A" class="menuitem-iconic"
+				insertafter="devToolsSeparator">
+			<menupopup id="copyallurls-tools-submenu">
+				<menuitem label="Copy"
+						oncommand="copyallurls_copy();"
+						key="key_copyallurls"
+						class="menuitem-iconic"
+						accesskey="C" />
+				<menuitem label="Paste"
+						oncommand="copyallurls_paste();"
+						key="key_paste"
+						class="menuitem-iconic"
+						accesskey="P" />
+				<menuitem label="Open Tabs..."
+						oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"
+						key="key_openurls"
+						class="menuitem-iconic"
+						accesskey="T" />
+				<menuitem label="Options..."
+						oncommand="window.openDialog('chrome://copyallurls/content/dialogs/options.xul','CopyAllUrls Options','centerscreen, chrome, resizable').focus();"
+						key="key_openoptione"
+						class="menuitem-iconic"
+						accesskey="O" />
+			</menupopup>
+	</menu>
+   </menupopup>
+   
+   	<keyset id="mainKeyset">
+	   	<key id="key_openoptione" key="O" modifiers="control alt" oncommand="window.openDialog('chrome://copyallurls/content/dialogs/options.xul','CopyAllUrls Options','centerscreen, chrome, resizable').focus();"/>
+	   	<key id="key_paste" key="V" modifiers="control alt" oncommand="copyallurls_paste();"/>
+	   	<key id="key_openurls" key="X" modifiers="control alt" oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"/>
+		<key id="key_copyallurls" key="C" modifiers="control alt" oncommand="copyallurls_copy();"/>
+	</keyset>
+	
+	<!-- Mozilla Tools File Menu -->
+	<menupopup id="taskPopup">
+        <menu id="copyallurls-moz-menu" label="copyallurls Creator" accesskey="T" insertafter="devToolsSeparator">
+                        <menupopup id="copyallurls-tools-submenu">
+				<menuitem label="Copy"
+						oncommand="copyallurls_copy();"
+						accesskey="C" />
+				<menuitem label="Paste"
+						oncommand="copyallurls_paste();"
+						accesskey="P" />
+				<menuitem label="Open Tabs..."
+                                            oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"
+                                            accesskey="T" />
+				<menuitem label="Options..."
+						oncommand="window.openDialog('chrome://copyallurls/content/dialogs/options.xul','copyallurlsDialog','centerscreen, chrome, resizable').focus();"
+						accesskey="O" />
+			</menupopup>
+		</menu>
+	</menupopup>
+
+</overlay>
