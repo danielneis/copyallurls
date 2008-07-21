@@ -20,6 +20,10 @@
 			oncommand="copyallurls_paste();"
 			key="key_paste"
 			accesskey="P" />
+		       <menuitem label="Avoid copy current address"
+			oncommand="copyallurls_add_exception();"
+			key="key_add_exception"
+			accesskey="A" />
             </menupopup>
         </menu>
 	</popup>
@@ -79,6 +83,7 @@
 	   	<key id="key_paste" key="V" modifiers="control alt" oncommand="copyallurls_paste();"/>
 	   	<key id="key_openurls" key="X" modifiers="control alt" oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"/>
 		<key id="key_copyallurls" key="C" modifiers="control alt" oncommand="copyallurls_copy();"/>
+	   	<key id="key_add_exception" key="A" modifiers="control alt" oncommand="copyallurls_add_exception();"/>
 	</keyset>
     
     
@@ -117,6 +122,7 @@
 	   	<key id="key_paste" key="V" modifiers="control alt" oncommand="copyallurls_paste();"/>
 	   	<key id="key_openurls" key="X" modifiers="control alt" oncommand="window.openDialog('chrome://copyallurls/content/dialogs/dialog.xul','OpenUrlsDialog','centerscreen, chrome, resizable, modal').focus();"/>
 		<key id="key_copyallurls" key="C" modifiers="control alt" oncommand="copyallurls_copy();"/>
+	   	<key id="key_add_exception" key="A" modifiers="control alt" oncommand="copyallurls_add_exception();"/>
 	</keyset>
 	
 	<!-- Mozilla Tools File Menu -->

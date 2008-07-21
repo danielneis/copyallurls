@@ -117,13 +117,20 @@ function getUrlsSorted(aBrowsers,oPrefs) {
     }
 
     if(oPrefs.prefHasUserValue("copyallurls.exceptionlist")){
-            var list = oPrefs.getCharPref("copyallurls.exceptionlist");
-            var temp = new Temp(list, list,list);
-            var length = taburls.length;
-            for (var j = 0; j < length ; j++) {
-                if (compareTempUrl(taburls[j], temp) == 0)
-                    taburls[j] = new Temp('','','');
+            var list = oPrefs.getCharPref("copyallurls.exceptionlist").split(" ");
+            var llength = list.length;
+            var tlength = taburls.length;
+            var filteredurls = [];
+            for (var j = 0; j < tlength; j++) {
+                filteredurls.push(taburls[j]);
+                for (var k = 0; k < llength; k++) {
+                    if (taburls[j].url == list[k]) {
+                        filteredurls.pop();
+                        break;
+                    }
+                }
             }
+            taburls = filteredurls;
     }
 
     if(oPrefs.prefHasUserValue("copyallurls.sortorder") &&  oPrefs.getCharPref("copyallurls.sortorder") == "title"){
@@ -364,4 +371,10 @@ function copyallurls_paste() {
 	
 	return true;
 	
+}
+
+function copyallurls_add_exception() {
+
+    var oPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("");
+    oPrefs.setCharPref("copyallurls.exceptionlist", oPrefs.getCharPref("copyallurls.exceptionlist") + " " + gBrowser.currentURI.spec);
 }
